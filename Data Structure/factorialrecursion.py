@@ -18,11 +18,27 @@ def wordrecursion(newword):
 finalword = wordrecursion("python")
 print(finalword)
 
-def digitrecursion(num):
+def sumdigitrecursion(num):
     if num == 0:
         return num 
-    answer = num % 10 + digitrecursion(num//10)
+    answer = num % 10 + sumdigitrecursion(num//10)
     print(answer)
     return answer
-finalanswer= digitrecursion(126)
+finalanswer= sumdigitrecursion(126)
 print(finalanswer)
+
+def palindromerecursion(word):
+    if len(word) == 0 or len(word) == 1:
+        return True
+    if word[0] != word[-1]:
+        return False
+    ispalindrome = palindromerecursion(word[1:-1])
+    print(ispalindrome)
+    return ispalindrome
+
+ispalindrome = palindromerecursion("racecar")
+if ispalindrome:
+    print("That is a palindrome")
+else:
+    print("That isn't a palindrome")
+ 
